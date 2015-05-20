@@ -17,7 +17,8 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-\usepackage{url}
+%\usepackage{url}
+\usepackage{hyperref}
 
 \newcommand\heading[1]{%
   \par\bigskip
@@ -30,22 +31,20 @@
 
 \begin{document}
 
-%% Title Page ------------------------------------------------------------------
-\begin{frame}
+\begin{frame} %-----------------------------------------------------------------
   \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
+\begin{frame}{Outline} % -------------------------------------------------------
   \tableofcontents
 \end{frame}
 
-\section{Dafynitions} %% =======================================================
+\section{Introduction} %% ======================================================
 
-%% Dafynitions -----------------------------------------------------------------
-\begin{frame}
+\begin{frame} % ----------------------------------------------------------------
   \frametitle{Dafynitions}
   \begin{itemize}
-  \item Version Control: ... the management of changes to documents,
+  \item \textbf{Version Control:} \textit{the management of changes to documents,
     computer programs, large web sites, and other collections of
     information.\footnote{https://en.wikipedia.org/wiki/Revision\_control}
     It has many names.
@@ -53,64 +52,63 @@
     \item Revision Control
     \item Source Control
     \item Renaming Files
-    \end{itemize}
-  \item Git: ... a distributed revision control system with an
+    \end{itemize}}
+  \item \textbf{Git:} \textit{a distributed revision control system with an
     emphasis on speed, data integrity, and support for distributed,
     non-linear
-    workflows. \footnote{https://en.wikipedia.org/wiki/Git\_(software)}
-    There are other tools (see below) that can do this, but I'm not going to
-    talk about them.
-    \begin{itemize}
-    \item Mercurial
-    \item Bazaar
-    \end{itemize}
-
+    workflows. \footnote{https://en.wikipedia.org/wiki/Git\_(software)}}
+  \item \textbf{GitLab:} \textit{a web-based Git repository manager with wiki
+    and issue tracking features. GitLab is similar to GitHub, but
+    GitLab has an open source version, unlike
+    GitHub.\footnote{https://en.wikipedia.org/wiki/GitLab}}
   \end{itemize}
 \end{frame}  
 
-\begin{frame}
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Git and R:}  
+  \begin{itemize}
+  \item Version Control and git are heavily used by the R community.
+  \item You can use git for SAS development as easily as R.
+  \item Or Excel . . . . 
+  \item Or a Presentation . . . .
+  \end{itemize}
+\end{frame}
+
+\begin{frame} % ----------------------------------------------------------------
   \frametitle{Once I Shutup:}
 
-  Today:
+  \textbf{Today:}
   \begin{itemize}
-  \item What and Why; Not How
-  \item How requires hands on, not a presentation.
+  \item What and Why.
+  \item Not How.
   \item Git isn't rocket science. . . or epidemiology.
   \end{itemize}
 
   \bigskip
-  On Your Own:
+  \textbf{On Your Own:}
   \begin{itemize}
   \item {\url{https://msysgit.github.io/}}
   \item {\url{http://sourceforge.net/projects/gitextensions/}}
   \item {\url{http://doc.gitlab.com/ce/}}
   \item {\url{https://help.github.com/}}
   \end{itemize}
+
+  \bigskip
+  \textbf{This presentation can be found at:}
+  \begin{itemize}
+  \item {\small{\url{https://github.com/choens/git-for-research-scientists}}}
+  \end{itemize}
   
 \end{frame}
 
-\begin{frame}
-  \frametitle{Git and R:}  
-
-  \begin{itemize}
-  \item Version Control and git are heavily used by the R community.
-  \item BUT THEY ARE NOT THE SAME!
-  \item You can use git for SAS development as easily as R.
-  \item Or Excel . . . . 
-  \end{itemize}
-\end{frame}
-
-\section{When Version Control Matters} %% ======================================
-
-%% When Version Control Matters 2-----------------------------------------------
-\begin{frame}
+\begin{frame} % ----------------------------------------------------------------
   \frametitle{When Version Control Matters}
   
   \begin{columns}
     \begin{column}{.5\textwidth}
       \begin{itemize}
-      \item Q: Is all this relevant to me?
-      \item A: Probably 
+      \item \textbf{Q:} \textit{Is all this relevant to me?}
+      \item \textbf{A:} \textit{Yes.}
       \end{itemize} 
     \end{column}
     
@@ -124,65 +122,24 @@
 
 \section{Informal Version Control} %% ==========================================
 
-%% Informal Version Control Exists . . . But . . . . ---------------------------
-\begin{frame}
-  \frametitle{Informal Version Control Exists . . . But . . . .}
-  {\large Which of these files is the final file?}
-  \bigskip
-  \begin{itemize}
-  \item big\_project/2014.05.27.run.sas
-  \item big\_project/2014.05.27.re\_run.sas
-  \item big\_project/2014.05.27.re\_re\_run.sas
-  \item big\_project/2014.05.28.use\_this\_one.sas
-  \item big\_project/2014.05.29.huh.sas
-  \item big\_project/2014.05.30.aaaargh.sas
-  \item big\_project/2014.05.31.not\_bad.sas
-  \item big\_project/2014.05.31.woohoo.sas
-  \end{itemize}
-  \pause
-  \bigskip
-  \begin{itemize}
-  \item This time next year, will know for sure which code was
-    \emph{final}?
-  \item Will you remember what is different about these?
-  \end{itemize}
-  
-\end{frame}
-
-%% Informal Version Control Examples--------------------------------------------
-\begin{frame}
-  \frametitle{Informal Version Control Examples}
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Informal Version Control: Examples}
   {\large Woefully incomplete list of examples:}
   \bigskip
   \begin{itemize}
-  \item File-name sphagetti. \emph{(As previously demonstrated.)}
+  \item File-name sphagetti.
   \item Track Changes In Word, Excel, etc.
-  \item DropBox
+  \item DropBox, SpiderOak
   \item Time Machine in OSX
   \item Who else has a different USB drive for every day of the week?
   \end{itemize} 
 \end{frame}
 
-%% Informal Version Control Failures -------------------------------------------
-\begin{frame} 
-  \frametitle{Informal Version Control Failures}
-  {\large Have you or a colleague ever:}
-  \bigskip
-  \begin{itemize}
-  \item Suffered from file-name sphagetting syndrome?
-  \item Lost the old version of some code that produced the \emph{really} graph given
-    to the Medicaid Director last fall?
-  \item Struggled tracking and integrating feedback from multiple
-    collaborators?
-  \item Wasted all morning waiting for the shared drive to come back on-line?
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Informal Version Control}
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Informal Version Control: Examples 2}
   \begin{columns}[t]
     \begin{column}{.5\textwidth}
-      {\large Advantages}
+      \textbf{{\large Advantages}}
       \begin{itemize}
       \item Sometimes, it is built in.
         \begin{itemize}
@@ -195,7 +152,7 @@
     \end{column}
     
     \begin{column}{.5\textwidth}
-      {\large Disadvantages}
+      \textbf{{\large Disadvantages}}
       \begin{itemize}
       \item Not equally available.
         \begin{itemize}
@@ -211,94 +168,165 @@
         \item Why?
         \item Which version do I have?
         \item Where is last year's code?
+        \item What is branching?
         \end{itemize}
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Informal Version Control}
-  Some things to ponder:
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Informal Version Control: Fail}
+  {\large Which of these files is the final file?}
   \bigskip
   \begin{itemize}
-  \item Would you implement a hierchical model in Excel?
-  \item Would you use Access to store Medicaid Billing data?
-  \item Would you go bear hunting with a BB gun?
+  \item big\_project/2014.05.27.run.sas
+  \item big\_project/2014.05.27.re\_run.sas
+  \item big\_project/2014.05.27.re\_re\_run.sas
+  \item big\_project/2014.05.28.use\_this\_one.sas
+  \item big\_project/2014.05.29.huh.sas
+  \item big\_project/2014.05.30.aaaargh.sas
+  \item big\_project/2014.05.31.not\_bad.sas
+  \item big\_project/2014.05.31.woohoo.sas
   \end{itemize}
-  \pause
+
   \bigskip
-  \bigskip
-  {\large So why are you manually implementing Version Control?}
+  \begin{center}
+  \textbf{Welcome To Informal Version Control.}
+  \end{center}
   
 \end{frame}
 
-\section{Formal Version Control}
+\begin{frame}  % ---------------------------------------------------------------
+  \frametitle{Informal Version Control: FAILS}
+  {\large Have you or a colleague ever:}
+  \bigskip
+  \begin{itemize}
+  \item Wasted all morning waiting for the shared drive to come back
+    on-line?
+  \item Been unable to reproduce the \emph{really} important graph
+    given to the Medicaid Director last fall, because the code has
+    been lost (overwritten)?
+  \item Suffered from sphagetti file-name syndrome?
+  \item Been unsure if the code you are using is the most current
+    version? If it isn't, what are the changes and where are they in
+    the code?
+  \end{itemize}
+\end{frame}
 
-\begin{frame}
-  \frametitle{Formal Version Control: Defined}
 
-  Formal Version Control: Using tools and methods to implement a
-  shared vision for tracking changes and collaborating with others.
+\section{Formal Version Control} %% ============================================
+
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Formal Version Control: The Answer}
+
+  \textbf{Gives users tools, practices and community norms that enable
+    more effective collaboration and communication.}
   
  \end{frame}
  
-\begin{frame}
+\begin{frame} % ----------------------------------------------------------------
   \frametitle{Formal Version Control: Wikipedia Example}
-
-  Version Control can be found in lots of places:\\
-  
-  \smallskip
-  {\tiny{\url{https://en.wikipedia.org/w/index.php?title=United\_States\_Constitution\&action=history}}}
-
-  \bigskip
-  Wikipedians place a high priority in understanding how their work
-  changes over time and they have a common system for sharing,
-  tracking and using changes to their product.
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{More Dafynitions}
-
-  The world needs more dafynitions:
   
   \begin{itemize}
-  \item Git: Just a tool, from a git.
-  \item Repository / repo: A place to put a project (local and
-    remote).
-    \begin{itemize}
-    \item GitExtensions: Local Interface
-    \item GitLab: Remote interface
-    \end{itemize}
+  \item Version Control can be found in lots of places, like
+    Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Help:Page_history}}.
+  \item The entire history of EVERY Wikipedia Article is available.
+  \item Wikipedians place a high priority in understanding how their
+    product changes over time.
+  \item They have a common system for sharing, tracking and using
+  changes to their product.
+  \item There is not reason we can't have the same history for the
+    work we do.
   \end{itemize}
 
+\end{frame}
+
+\begin{frame}  % ---------------------------------------------------------------
+  \frametitle{Formal Version Control: WINS}
+  {\large Have you or a colleague ever:}
   \bigskip
-  Formal Version Control is a set of tools, practices and community
-  norms which can you collaborate and communicate with each
-  other.
+  \begin{itemize}
+  \item Wasted all morning waiting for the shared drive to come back
+    on-line?
+  \item Been unable to reproduce the \emph{really} important graph
+    given to the Medicaid Director last fall, because the code has
+    been lost (overwritten)?
+  \item Suffered from sphagetti file-name syndrome?
+  \item Been unsure if the code you are using is the most current
+    version? If it isn't, what are the changes and where are they?
+  \end{itemize}
+
+  \begin{center}
+    \textbf{Let's turn these FAILS into WINS!}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Git Win \# 1} 
+ 
+  \textbf{Fail:} Have you or a colleague ever wasted all morning
+  waiting for the shared drive to come back on-line?
+ 
+  \bigskip 
+
+  \textbf{Win:} Git stores a local copy of the code on YOUR local
+  computer. If the server goes down, you can still work, but you can't
+  collaborate.
   
 \end{frame}
-
+ 
 \begin{frame}
-  \frametitle{Not Enough Time To Teach Git \& Gitlab. . . . }
-  But here's a taste:
-  \bigskip
+  \frametitle{Git Win \# 2} 
 
-  \begin{itemize}
-  \item Tracking Changes with Git (use of the tool)
-  \item Branching (a practice)
-  \item README Files (a community norm)
-  \item Example of communication and collaboration.
-  \end{itemize}
+  \textbf{Fail:} Have you or a colleague ever been unable to reproduce
+  the \emph{really} important graph given to the Medicaid Director
+  last fall, because the code has been lost (overwritten)?
+
+  \bigskip 
+
+  \textbf{Win:} Tracked Changes!
+
 \end{frame}
-
+ 
 \begin{frame}
+  \frametitle{Git Win \# 3}
+
+  \textbf{Fail:} Have you or a colleague ever suffered from sphagetti
+  file-name syndrome?
+
+  \textbf{OR:} Have you or a colleague ever had to port lots of code
+  fro Oracle to Vertica AND track the resulting changes in a moving
+  code stream?
+
+  \bigskip 
+
+  \textbf{Win:} Branches!
+
+  \url{https://github.com/jbryer/sqlutils/network}
+
+\end{frame}
+ 
+\begin{frame}
+  \frametitle{Git Win \# 4} 
+
+  \textbf{Fail:} Have you or a colleague ever been unsure if the code
+  you are using is the most current version? If it isn't, what are the
+  changes and where are they?
+  
+  \bigskip 
+
+  \textbf{Win:} Branches!
+
+\end{frame}
+ 
+
+\begin{frame} % ----------------------------------------------------------------
   \frametitle{Tracking Changes}
-
+ 
   Basic Git Workflow (Using the tool):
   \bigskip
-
+ 
   \begin{itemize}
   \item Init
   \item Add
@@ -306,11 +334,11 @@
   \item Push
   \item Dance
   \end{itemize}
-
+ 
   \bigskip
   You do some work. You commit it and document it. You push it from
   your computer to the central repository. Wash. Rinse. Repeat.
-
+ 
   Note: This solves the problem of who made the changes. When did they make
   them and why. Poof. Gone.
   
@@ -318,23 +346,10 @@
   
 \end{frame}
 
-\begin{frame}
-  \frametitle{Branches}
-  
-\end{frame}
 
-\begin{frame}
-  \frametitle{README Files}
-  
-\end{frame}
+\section{Questions?} %% ========================================================
 
-\begin{frame}
-  \frametitle{Example of Communication and Collaboration}
-  
-\end{frame}
-\section{Questions?}
-
-\begin{frame}
+\begin{frame} % ----------------------------------------------------------------
  \frametitle{Questions?}
  \includegraphics[width=\textwidth]{./img/questions.png}
 \end{frame}
