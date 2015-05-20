@@ -19,18 +19,19 @@ GitLab and GitHub:
 
 ## Windows Users
 
-For users interested in using Git on Windows, I recommend the
-following two tools. Install in the order listed:
+To use Git on Windows, I recommend the following two tools. Install in
+the order listed:
 
 1. https://msysgit.github.io/
 2. http://sourceforge.net/projects/gitextensions/
 
 Note: DOH users can no longer access Sourceforge from within the DOH
-firewall. 
+firewall. To install on computers on the DOH network, we will have to
+work something out with ITS.
 
 ## Linux Users
 
-For users interested in using Git on Linux, I recommend the default
+To use Git on Linux, I recommend the default
 Git Gui and Git Cola:
 
 - Git Gui (comes with git)
@@ -38,8 +39,8 @@ Git Gui and Git Cola:
 - OR just use it via the command-line as intended.
 - OR use it via Emacs and magit.
 
-According to their documentation, GitExtensions runs on Linux via
-Mono, but I do not have any experience using on Linux.
+The developers of GitExtensions claim their software runs on Linux via
+Mono, but I do not have any experience using it on Linux.
 
 For Ubuntu users, installation is as easy as installing the Git and
 Git Cola packages using the default package manager or running the
@@ -51,8 +52,12 @@ I strongly recommend Emacs users to investigate magit.
 
 ## OS X Users
 
-For users interested in using Git on OS X, I don't have any
-recommendations.
+To use Git on OS X, I don't have any recommendations.
 
 If anyone has any suggestions for the best way to install Git and a
 good Git Gui onto OS X, I am happy to update this README.
+
+If anyone thinks I should list additional tools here, let me
+know. Please understand that non-FOSS suggestions are likely to be
+rejected. And no, I don't want you to lecture me about the fact I'm
+using GH to say this.
