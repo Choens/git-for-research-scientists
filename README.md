@@ -4,7 +4,7 @@ _Eventually_, this repo will hold a series of presentations and
 workshops for teaching Version Control and Git to NYS DOH Research
 Scientists.
 
-As of today, this repo contains one lonely presentation, an
+As of today, this repo contains one single presentation, an
 introduction to Version Control and Git. Think of it as a "What and
 Why".
 
