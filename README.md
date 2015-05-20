@@ -9,10 +9,17 @@ introduction to Version Control and Git. Think of it as a "What and
 Why".
 
 To make it easier for people to access the materials I will keep a
-compiled version of all presentations and materials in this repo.
+compiled version of all presentations and materials in this repo. I
+will tag revisions which denote when I make presentations with these
+materials.
+
+COMING SOON: Some Training Material for HOW!
+
+# For New Users
 
 To learn how to use Git, I recommend the documentation that comes with
-GitLab and GitHub:
+GitLab and GitHub. Their material is well thought out and comes with
+cool pictures:
 
 - http://doc.gitlab.com/ce/
 - https://help.github.com/
