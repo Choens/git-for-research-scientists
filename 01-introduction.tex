@@ -17,7 +17,8 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-\usepackage{url}
+%\usepackage{url}
+\usepackage{hyperref}
 
 \newcommand\heading[1]{%
   \par\bigskip
@@ -226,16 +227,18 @@
  
 \begin{frame} % ----------------------------------------------------------------
   \frametitle{Formal Version Control: Wikipedia Example}
-
-  Version Control can be found in lots of places:\\
   
-  \smallskip
-  {\tiny{\url{https://en.wikipedia.org/w/index.php?title=United\_States\_Constitution\&action=history}}}
-
-  \bigskip
-  Wikipedians place a high priority in understanding how their work
-  changes over time and they have a common system for sharing,
-  tracking and using changes to their product.
+  \begin{itemize}
+  \item Version Control can be found in lots of places, like
+    Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Help:Page_history}}.
+  \item The entire history of EVERY Wikipedia Article is available.
+  \item Wikipedians place a high priority in understanding how their
+    product changes over time.
+  \item They have a common system for sharing, tracking and using
+  changes to their product.
+  \item There is not reason we can't have the same history for the
+    work we do.
+  \end{itemize}
 
 \end{frame}
 
@@ -253,6 +256,10 @@
   \item Been unsure if the code you are using is the most current
     version? If it isn't, what are the changes and where are they?
   \end{itemize}
+
+  \begin{center}
+    \textbf{Let's turn these FAILS into WINS!}
+  \end{center}
 \end{frame}
 
 \begin{frame}
@@ -295,6 +302,8 @@
   \bigskip 
 
   \textbf{Win:} Branches!
+
+  \url{https://github.com/jbryer/sqlutils/network}
 
 \end{frame}
  
