@@ -6,11 +6,11 @@
 # locations into the compile script.
 
 01-introduction:01-introduction.tex
-	pdflatex    01-what-and-why.tex
-	pdflatex    01-what-and-why.tex
+	pdflatex    01-introduction.tex
+	pdflatex    01-introduction.tex
 
 01-introduction-open:01-introduction.pdf
-	xdg-open 01-what-and-why.pdf
+	xdg-open 01-introduction.pdf
 
 clean:
 	rm *.aux
