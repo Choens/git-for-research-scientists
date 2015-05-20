@@ -68,3 +68,13 @@ If anyone thinks I should list additional tools here, let me
 know. Please understand that non-FOSS suggestions are likely to be
 rejected. And no, I don't want you to lecture me about the fact I'm
 using GH to say this.
+
+# Images
+
+Many users will recognize the files in the img/ folder as belonging to
+the Web Comit "Piled Higher and Deeper". I will switch up my compiling
+code to pull these in during the compilation in the future and stop
+hosting these images here. Please don't sue me. I'm not making any
+money off of this. In the meantime and in the future, ALL rights to
+the images in the img/ folder belong to the creative mind who drew
+them. I wish I could dry like that. I really do.
