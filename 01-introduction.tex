@@ -1,0 +1,342 @@
+\documentclass{beamer}
+% 
+% Choose how your presentation looks.
+% 
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% 
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{url}
+
+\newcommand\heading[1]{%
+  \par\bigskip
+  {\Large\bfseries#1}\par\smallskip}
+
+\title[Version Control Intro]{Version Control: What and Why}
+\author{Andy Choens, MSW}
+\institute{Office of Quality and Patient Safety}
+\date{May 20, 2015}
+
+\begin{document}
+
+%% Title Page ------------------------------------------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Dafynitions} %% =======================================================
+
+%% Dafynitions -----------------------------------------------------------------
+\begin{frame}
+  \frametitle{Dafynitions}
+  \begin{itemize}
+  \item Version Control: ... the management of changes to documents,
+    computer programs, large web sites, and other collections of
+    information.\footnote{https://en.wikipedia.org/wiki/Revision\_control}
+    It has many names.
+    \begin{itemize}
+    \item Revision Control
+    \item Source Control
+    \item Renaming Files
+    \end{itemize}
+  \item Git: ... a distributed revision control system with an
+    emphasis on speed, data integrity, and support for distributed,
+    non-linear
+    workflows. \footnote{https://en.wikipedia.org/wiki/Git\_(software)}
+    There are other tools (see below) that can do this, but I'm not going to
+    talk about them.
+    \begin{itemize}
+    \item Mercurial
+    \item Bazaar
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}  
+
+\begin{frame}
+  \frametitle{Once I Shutup:}
+
+  Today:
+  \begin{itemize}
+  \item What and Why; Not How
+  \item How requires hands on, not a presentation.
+  \item Git isn't rocket science. . . or epidemiology.
+  \end{itemize}
+
+  \bigskip
+  On Your Own:
+  \begin{itemize}
+  \item {\url{https://msysgit.github.io/}}
+  \item {\url{http://sourceforge.net/projects/gitextensions/}}
+  \item {\url{http://doc.gitlab.com/ce/}}
+  \item {\url{https://help.github.com/}}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Git and R:}  
+
+  \begin{itemize}
+  \item Version Control and git are heavily used by the R community.
+  \item BUT THEY ARE NOT THE SAME!
+  \item You can use git for SAS development as easily as R.
+  \item Or Excel . . . . 
+  \end{itemize}
+\end{frame}
+
+\section{When Version Control Matters} %% ======================================
+
+%% When Version Control Matters 2-----------------------------------------------
+\begin{frame}
+  \frametitle{When Version Control Matters}
+  
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+      \item Q: Is all this relevant to me?
+      \item A: Probably 
+      \end{itemize} 
+    \end{column}
+    
+    \begin{column}{.5\textwidth}
+        \centering
+        \includegraphics[height=.8\textheight]{img/final} 
+    \end{column}
+  \end{columns}
+  \footnote{http://www.phdcomics.com/comics/archive.php?comicid=1531}
+\end{frame}
+
+\section{Informal Version Control} %% ==========================================
+
+%% Informal Version Control Exists . . . But . . . . ---------------------------
+\begin{frame}
+  \frametitle{Informal Version Control Exists . . . But . . . .}
+  {\large Which of these files is the final file?}
+  \bigskip
+  \begin{itemize}
+  \item big\_project/2014.05.27.run.sas
+  \item big\_project/2014.05.27.re\_run.sas
+  \item big\_project/2014.05.27.re\_re\_run.sas
+  \item big\_project/2014.05.28.use\_this\_one.sas
+  \item big\_project/2014.05.29.huh.sas
+  \item big\_project/2014.05.30.aaaargh.sas
+  \item big\_project/2014.05.31.not\_bad.sas
+  \item big\_project/2014.05.31.woohoo.sas
+  \end{itemize}
+  \pause
+  \bigskip
+  \begin{itemize}
+  \item This time next year, will know for sure which code was
+    \emph{final}?
+  \item Will you remember what is different about these?
+  \end{itemize}
+  
+\end{frame}
+
+%% Informal Version Control Examples--------------------------------------------
+\begin{frame}
+  \frametitle{Informal Version Control Examples}
+  {\large Woefully incomplete list of examples:}
+  \bigskip
+  \begin{itemize}
+  \item File-name sphagetti. \emph{(As previously demonstrated.)}
+  \item Track Changes In Word, Excel, etc.
+  \item DropBox
+  \item Time Machine in OSX
+  \item Who else has a different USB drive for every day of the week?
+  \end{itemize} 
+\end{frame}
+
+%% Informal Version Control Failures -------------------------------------------
+\begin{frame} 
+  \frametitle{Informal Version Control Failures}
+  {\large Have you or a colleague ever:}
+  \bigskip
+  \begin{itemize}
+  \item Suffered from file-name sphagetting syndrome?
+  \item Lost the old version of some code that produced the \emph{really} graph given
+    to the Medicaid Director last fall?
+  \item Struggled tracking and integrating feedback from multiple
+    collaborators?
+  \item Wasted all morning waiting for the shared drive to come back on-line?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Informal Version Control}
+  \begin{columns}[t]
+    \begin{column}{.5\textwidth}
+      {\large Advantages}
+      \begin{itemize}
+      \item Sometimes, it is built in.
+        \begin{itemize}
+        \item Word
+        \item SAS
+        \end{itemize}
+      \item Easily implemented.
+      \item You already know how.
+      \end{itemize}
+    \end{column}
+    
+    \begin{column}{.5\textwidth}
+      {\large Disadvantages}
+      \begin{itemize}
+      \item Not equally available.
+        \begin{itemize}
+        \item PowerPoint
+        \item Data revisions?
+        \end{itemize}
+      \item Only starts simple.
+      \item I hope everyone agrees how.
+      \item Multiple collaborators?
+        \begin{itemize}
+        \item Who changed the code?
+        \item When?  
+        \item Why?
+        \item Which version do I have?
+        \item Where is last year's code?
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Informal Version Control}
+  Some things to ponder:
+  \bigskip
+  \begin{itemize}
+  \item Would you implement a hierchical model in Excel?
+  \item Would you use Access to store Medicaid Billing data?
+  \item Would you go bear hunting with a BB gun?
+  \end{itemize}
+  \pause
+  \bigskip
+  \bigskip
+  {\large So why are you manually implementing Version Control?}
+  
+\end{frame}
+
+\section{Formal Version Control}
+
+\begin{frame}
+  \frametitle{Formal Version Control: Defined}
+
+  Formal Version Control: Using tools and methods to implement a
+  shared vision for tracking changes and collaborating with others.
+  
+ \end{frame}
+ 
+\begin{frame}
+  \frametitle{Formal Version Control: Wikipedia Example}
+
+  Version Control can be found in lots of places:\\
+  
+  \smallskip
+  {\tiny{\url{https://en.wikipedia.org/w/index.php?title=United\_States\_Constitution\&action=history}}}
+
+  \bigskip
+  Wikipedians place a high priority in understanding how their work
+  changes over time and they have a common system for sharing,
+  tracking and using changes to their product.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{More Dafynitions}
+
+  The world needs more dafynitions:
+  
+  \begin{itemize}
+  \item Git: Just a tool, from a git.
+  \item Repository / repo: A place to put a project (local and
+    remote).
+    \begin{itemize}
+    \item GitExtensions: Local Interface
+    \item GitLab: Remote interface
+    \end{itemize}
+  \end{itemize}
+
+  \bigskip
+  Formal Version Control is a set of tools, practices and community
+  norms which can you collaborate and communicate with each
+  other.
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Not Enough Time To Teach Git \& Gitlab. . . . }
+  But here's a taste:
+  \bigskip
+
+  \begin{itemize}
+  \item Tracking Changes with Git (use of the tool)
+  \item Branching (a practice)
+  \item README Files (a community norm)
+  \item Example of communication and collaboration.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tracking Changes}
+
+  Basic Git Workflow (Using the tool):
+  \bigskip
+
+  \begin{itemize}
+  \item Init
+  \item Add
+  \item Commit
+  \item Push
+  \item Dance
+  \end{itemize}
+
+  \bigskip
+  You do some work. You commit it and document it. You push it from
+  your computer to the central repository. Wash. Rinse. Repeat.
+
+  Note: This solves the problem of who made the changes. When did they make
+  them and why. Poof. Gone.
+  
+  {\tiny {\url{http://appdev1/oqps/hh-quarterly-qa-report/tree/master}}}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Branches}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{README Files}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example of Communication and Collaboration}
+  
+\end{frame}
+\section{Questions?}
+
+\begin{frame}
+ \frametitle{Questions?}
+ \includegraphics[width=\textwidth]{./img/questions.png}
+\end{frame}
+
+\end{document}
