@@ -8,7 +8,7 @@
 \mode<presentation>
 {
   \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
-  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usecolortheme{beaver} % or try albatross, beaver, crane, ...
   \usefonttheme{default}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
@@ -17,8 +17,7 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
-%\usepackage{url}
-\usepackage{hyperref}
+\usepackage{url}
 
 \newcommand\heading[1]{%
   \par\bigskip
@@ -52,6 +51,7 @@
     \item Revision Control
     \item Source Control
     \item Renaming Files
+    \item VC
     \end{itemize}}
   \item \textbf{Git:} \textit{a distributed revision control system with an
     emphasis on speed, data integrity, and support for distributed,
@@ -67,7 +67,7 @@
 \begin{frame} % ----------------------------------------------------------------
   \frametitle{Git and R:}  
   \begin{itemize}
-  \item Version Control and git are heavily used by the R community.
+  \item VC and git are heavily used by the R community.
   \item You can use git for SAS development as easily as R.
   \item Or Excel . . . . 
   \item Or a Presentation . . . .
@@ -75,7 +75,7 @@
 \end{frame}
 
 \begin{frame} % ----------------------------------------------------------------
-  \frametitle{Once I Shutup:}
+  \frametitle{After The Show:}
 
   \textbf{Today:}
   \begin{itemize}
@@ -88,7 +88,7 @@
   \textbf{On Your Own:}
   \begin{itemize}
   \item {\url{https://msysgit.github.io/}}
-  \item {\url{http://sourceforge.net/projects/gitextensions/}}
+  \item {\url{http://sourceforge.net/projects/gitextensions/}} BLOCKED!
   \item {\url{http://doc.gitlab.com/ce/}}
   \item {\url{https://help.github.com/}}
   \end{itemize}
@@ -127,7 +127,7 @@
   {\large Woefully incomplete list of examples:}
   \bigskip
   \begin{itemize}
-  \item File-name sphagetti.
+  \item File-name spaghetti.
   \item Track Changes In Word, Excel, etc.
   \item DropBox, SpiderOak
   \item Time Machine in OSX
@@ -176,8 +176,11 @@
 \end{frame}
 
 \begin{frame} % ----------------------------------------------------------------
-  \frametitle{Informal Version Control: Fail}
-  {\large Which of these files is the final file?}
+  \frametitle{Informal Version Control: Fail} 
+
+  \textbf{Q:} Which SAS file generated the graph given to the
+  Medicaid Director last fall?
+
   \bigskip
   \begin{itemize}
   \item big\_project/2014.05.27.run.sas
@@ -199,7 +202,7 @@
 
 \begin{frame}  % ---------------------------------------------------------------
   \frametitle{Informal Version Control: FAILS}
-  {\large Have you or a colleague ever:}
+  {\large Have you or a colleague ever . . . . }
   \bigskip
   \begin{itemize}
   \item Wasted all morning waiting for the shared drive to come back
@@ -207,7 +210,7 @@
   \item Been unable to reproduce the \emph{really} important graph
     given to the Medicaid Director last fall, because the code has
     been lost (overwritten)?
-  \item Suffered from sphagetti file-name syndrome?
+  \item Struggled to maintain two parallel code bases?
   \item Been unsure if the code you are using is the most current
     version? If it isn't, what are the changes and where are they in
     the code?
@@ -252,7 +255,7 @@
   \item Been unable to reproduce the \emph{really} important graph
     given to the Medicaid Director last fall, because the code has
     been lost (overwritten)?
-  \item Suffered from sphagetti file-name syndrome?
+  \item Struggled to maintain two parallel code bases?
   \item Been unsure if the code you are using is the most current
     version? If it isn't, what are the changes and where are they?
   \end{itemize}
@@ -262,13 +265,15 @@
   \end{center}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Git Win \# 1} 
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Have you or a colleague ever . . . . \# 1} 
  
-  \textbf{Fail:} Have you or a colleague ever wasted all morning
-  waiting for the shared drive to come back on-line?
+  \textbf{Fail:} Wasted all morning waiting for the shared drive to
+  come back on-line?
  
-  \bigskip 
+  \medskip 
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \medskip
 
   \textbf{Win:} Git stores a local copy of the code on YOUR local
   computer. If the server goes down, you can still work, but you can't
@@ -276,76 +281,88 @@
   
 \end{frame}
  
-\begin{frame}
-  \frametitle{Git Win \# 2} 
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Have you or a colleague ever . . . . \# 2} 
 
-  \textbf{Fail:} Have you or a colleague ever been unable to reproduce
-  the \emph{really} important graph given to the Medicaid Director
-  last fall, because the code has been lost (overwritten)?
+  \textbf{Fail:} Been unable to reproduce the \emph{really} important
+  graph given to the Medicaid Director last fall, because the code has
+  been lost (overwritten)?
 
-  \bigskip 
+  \medskip 
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \medskip
 
-  \textbf{Win:} Tracked Changes!
-
-\end{frame}
- 
-\begin{frame}
-  \frametitle{Git Win \# 3}
-
-  \textbf{Fail:} Have you or a colleague ever suffered from sphagetti
-  file-name syndrome?
-
-  \textbf{OR:} Have you or a colleague ever had to port lots of code
-  fro Oracle to Vertica AND track the resulting changes in a moving
-  code stream?
-
-  \bigskip 
-
-  \textbf{Win:} Branches!
-
-  \url{https://github.com/jbryer/sqlutils/network}
-
-\end{frame}
- 
-\begin{frame}
-  \frametitle{Git Win \# 4} 
-
-  \textbf{Fail:} Have you or a colleague ever been unsure if the code
-  you are using is the most current version? If it isn't, what are the
-  changes and where are they?
+  \textbf{Win:} Committed changes are a permanent part of the project\footnote{\url{http://appdev1/oqps/hh-quarterly-qa-report/commits/master}}.
   
-  \bigskip 
+  \medskip
+  \textbf{Win:} Code state at commit is always reproducible.
 
-  \textbf{Win:} Branches!
+  \medskip
+  \textbf{Win:} Important versions can be tagged\footnote{\url{http://appdev1/oqps/hh-quarterly-qa-report/tags}}.
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{This Is A Practice, Not A Guarantee}
+  \includegraphics[width=\textwidth]{./img/git_commit.png}\footnote{\url{https://xkcd.com/1296/}}
+\end{frame}
+ 
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Have you or a colleague ever . . . . \# 3}
+
+  \textbf{Fail:} Struggled to maintain two parallel code bases? (Vertica?)
+
+  \medskip 
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \medskip
+
+  \textbf{Win:} Branches: You can maintain many parallel code
+  bases easily\footnote{\url{http://appdev1/axc38/hp-cmart/network/master}}.
 
 \end{frame}
  
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{Have you or a colleague ever . . . . \# 4} 
+
+  \textbf{Fail:} Been unsure if the code you are using is the most
+  current version? If it isn't, what are the changes and where are they?
+  
+  \medskip 
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+  \medskip
+
+  \textbf{Win:} Git repos  contain the full history \& status of a project\footnote{\url{http://appdev1/oqps/hh-quarterly-qa-report/merge_requests}}.
+
+  \medskip
+  \textbf{Win:} Tools to sync the local copy to the remote
+  master. (git pull)
+
+\end{frame}
 
 \begin{frame} % ----------------------------------------------------------------
-  \frametitle{Tracking Changes}
- 
-  Basic Git Workflow (Using the tool):
-  \bigskip
- 
+  \frametitle{Git + Gitlab == Project Management}
   \begin{itemize}
-  \item Init
-  \item Add
-  \item Commit
-  \item Push
-  \item Dance
+  \item Central place to share scientific code and projects
+  \item  1 repo == 1 project
+  \item Tracks changes in files over time\footnote{\url{http://appdev1/oqps/hh-quarterly-qa-report/commits/master}}
+  \item Issues / Bug Tracking\footnote{\url{http://appdev1/oqps/hh-quarterly-qa-report/issues}}
+  \item Tools for
+    collaboration
+    \footnote{\url{http://appdev1/care-management/hp-cmart-reports/issues/1}}
   \end{itemize}
- 
-  \bigskip
-  You do some work. You commit it and document it. You push it from
-  your computer to the central repository. Wash. Rinse. Repeat.
- 
-  Note: This solves the problem of who made the changes. When did they make
-  them and why. Poof. Gone.
-  
-  {\tiny {\url{http://appdev1/oqps/hh-quarterly-qa-report/tree/master}}}
-  
 \end{frame}
 
+\begin{frame} % ----------------------------------------------------------------
+  \frametitle{What Happens Next?}
+  \begin{itemize}
+  \item This is a different way of working, but anyone can learn it.
+  \item I am developing some formal training materials with EBCOP.
+  \item Don't forget the links from the beginning of the presentation.
+  \item File an ITS ticket to get MSYS Git and Git Extensions.
+  \item For GitLab: Contact Jeremy Redmond and Avideh Sadaghiani.
+  \item Questions? Post it to the EBCOP blog and we can discuss.
+  \end{itemize}
+\end{frame}
 
 \section{Questions?} %% ========================================================
 
